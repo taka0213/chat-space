@@ -39,7 +39,7 @@
 |name|string|index: true, null: false|
 
 ### Association
-- has_many :members
+- has_many :users
 - has_many :messages
 - has_many :members
 
