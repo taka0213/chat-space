@@ -8,7 +8,7 @@
 |------|----|-------|
 |name|string|index:true, null: false|
 |email|string|null: false|
-- add_index :users,[:name, :mail], unique: true
+- add_index :users,[:name, :mail]
 
 
 ### Association
