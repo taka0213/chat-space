@@ -14,10 +14,12 @@
             %li.user-menu__new-group
               %a{:href => "/users/311/edit"}
                 %i.fa.fa-cog
+        
         .groups
           .group
             %p.group__group-name test-group
             %p.group__latest-message こんにちは！
+      
       .chat-main
         .main-header
           .current-group
@@ -27,6 +29,7 @@
               %li.member-list__member test-user
           %a{:href => "/groups/525/edit"}
             .main-header__edit-btn Edit
+        
         .messages
           .message
             .upper-info
@@ -38,6 +41,7 @@
               %p.upper-info__user test-user
               %p.upper-info__date 2019/04/15(Mon) 17:55:23
             %p.message__text さようなら
+        
         .form
           %form#new_message.new-message{"accept-charset" => "UTF-8", :enctype => "multipart/form-data", :method => "post"}
             %input{:name => "utf8", :type => "hidden"}/
