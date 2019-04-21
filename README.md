@@ -27,7 +27,6 @@ Things you may want to cover:
 
 |Column|Type|Options|
 |------|----|-------|
-|id|integer|null: false, foreign_key: false|
 |name|string|null: false, foreign_key: false|
 |created_at|datetime|null: false, foreign_key: false|
 |updated_at|datetime|null: false, foreign_key: false|
@@ -75,21 +74,22 @@ Things you may want to cover:
 ### Association
 - belongs_to :group
 - belongs_to :user
+
 
 
 ## usersテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|id|integer|null: false, foreign_key: false|
-|name|string|null: false, foreign_key: false|
+|name|string|null: false, foreign_key: true|
 |created_at|datetime|null: false, foreign_key: false|
 |updated_at|datetime|null: false, foreign_key: false|
 |email|string|null: false, foreign_key: false|
 
 ### Association
 - belongs_to :group
-- hasmany :messages
+- has_many :messages
+
 
 ## messagesテーブル
 
@@ -103,21 +103,22 @@ Things you may want to cover:
 ### Association
 - belongs_to :user
 - belongs_to :group
-- belongs_to :member
+
+
 
 ## groupsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|id|integer|null: false, foreign_key: false|
 |group_name|string|null: false, foreign_key: false|
 |created_at|datetime|null: false, foreign_key: false|
 |updated_at|datetime|null: false, foreign_key: false|
 
 ### Association
-- hasmany :members
-- hasmany :users
-- hasmany :messages
+- has_many :members
+- has_many :users
+- has_many :messages
+
 
 ## membersテーブル
 
@@ -129,5 +130,4 @@ Things you may want to cover:
 ### Association
 - belongs_to :group
 - belongs_to :user
-
 
