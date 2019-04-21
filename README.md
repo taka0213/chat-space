@@ -45,8 +45,7 @@ Things you may want to cover:
 |------|----|-------|
 |body|text|null: false, foreign_key: false|
 |image|string|null: false, foreign_key: false|
-|group_id|datetime|null: false, foreign_key: true|
-|user_id|datetime|null: false, foreign_key: true|
+
 
 ### Association
 - belongs_to :user
@@ -59,8 +58,6 @@ Things you may want to cover:
 |Column|Type|Options|
 |------|----|-------|
 |group_name|string|null: false, foreign_key: false|
-|created_at|datetime|null: false, foreign_key: false|
-|updated_at|datetime|null: false, foreign_key: false|
 
 ### Association
 - has_many :members
