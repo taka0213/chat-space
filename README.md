@@ -34,8 +34,8 @@ Things you may want to cover:
 |email|string|null: false, foreign_key: false|
 
 ### Association
-- belongs_to :group
-- hasmany :messages
+- has_many :groups
+- has_many :messages
 
 ## messagesテーブル
 

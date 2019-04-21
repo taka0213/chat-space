@@ -1748,3 +1748,10 @@ Processing by MessagesController#index as HTML
 Completed 200 OK in 45ms (Views: 42.5ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/messages" for ::1 at 2019-04-21 17:21:36 +0900
+Processing by MessagesController#index as HTML
+  Rendering messages/index.html.haml within layouts/application
+  Rendered messages/index.html.haml within layouts/application (42.3ms)
+Completed 200 OK in 500ms (Views: 483.9ms | ActiveRecord: 0.0ms)
+
+
