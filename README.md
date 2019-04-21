@@ -8,7 +8,7 @@
 |------|----|-------|
 |name|string|index:true, null: false|
 |email|string|null: false|
-- add_index :users,[:name, :mail]
+- add_index :users,[:name]
 
 
 ### Association
@@ -22,7 +22,7 @@
 |------|----|-------|
 |body|text|
 |image|string|
-|user_id|integer|null: false, foreign_key: true, index:true|
+|user_id|references|null: false, foreign_key: true|
 |group_id|integer|null: false, foreign_key: true|
 
 
@@ -36,12 +36,12 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|group_name|string|index: true, null: false|
+|name|string|index: true, null: false|
 
 ### Association
-- has_many :members, through: :members
+- has_many :members
 - has_many :messages
-- has_many :messages
+- has_many :members
 
 
 ## membersテーブル
