@@ -2,17 +2,18 @@
 %html
   %body
     .flash-box
-      .notice グループを編集しました
+      .notice
     .wrapper
       .chat-side
         .side-header
-          %p.side-header__user-name test-user
+          %h3.side-header__user-name
+          = current_user.name
           %ul.user-menu
             %li.user-menu__edit-user
               %a{:href => "/groups/new"}
                 %i.fa.fa-edit
             %li.user-menu__new-group
-              %a{:href => "/users/311/edit"}
+              %a{:href => "/users/edit"}
                 %i.fa.fa-cog
         
         .groups
