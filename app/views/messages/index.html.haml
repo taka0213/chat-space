@@ -1,58 +1,32 @@
-!!!
-%html
-  %body
-    .flash-box
-      .notice
-    .wrapper
-      .chat-side
-        .side-header
-          %h3.side-header__user-name
-          = current_user.name
-          %ul.user-menu
-            %li.user-menu__edit-user
-              %a{:href => "/groups/new"}
-                %i.fa.fa-edit
-            %li.user-menu__new-group
-              %a{:href => "/users/edit"}
-                %i.fa.fa-cog
-        
-        .groups
-          .group
-            %p.group__group-name test-group
-            %p.group__latest-message こんにちは！
-      
-      .chat-main
-        .main-header
-          .current-group
-            %h2.current-group__name test-group
-            %ul.member-list
-              Member：
-              %li.member-list__member test-user
-          %a{:href => "/groups/525/edit"}
-            .main-header__edit-btn Edit
-        
-        .messages
-          .message
-            .upper-info
-              %p.upper-info__user test-user
-              %p.upper-info__date 2019/04/15(Mon) 17:55:13
-            %p.message__text こんにちは！
-          .message
-            .upper-info
-              %p.upper-info__user test-user
-              %p.upper-info__date 2019/04/15(Mon) 17:55:23
-            %p.message__text さようなら
-        
-        .form
-          %form#new_message.new-message{"accept-charset" => "UTF-8", :enctype => "multipart/form-data", :method => "post"}
-            %input{:name => "utf8", :type => "hidden"}/
-            %input{:name => "authenticity_token", :type => "hidden"}/
-            .input-box
-              %input#message_content.input-box__text{:name => "message[content]", :placeholder => "type a message", :type => "text"}/
-              %label.image-label{:for => "message_image"}
-                %i.fa.fa-image
-                %input#message_image.image-label__input{:name => "message[image]", :type => "file"}/
-            %input.new-message__submit-btn{"data-disable-with" => "Send", :name => "commit", :type => "submit", :value => "Send"}/
+.notification
+  .notice
+
+.wrapper
+  =render partial: "shared/side_bar"
+  .chat
+    .header
+      .left-header
+        .left-header__title
+          = @group.name
+        %ul.left-header__members
+          Member：
+          %li.member
+            - @group.group_users.each do |group_user|
+              = group_user.user.name
+      .right-header
+        %a.right-header__button
+          = link_to edit_group_path(@group.id) do
+            Edit
+    .messages
+      = render @messages
+    .form
+      = form_for [@group, @message] do |f|
+        = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+        .form__mask
+          = f.label :image, class: 'form__mask__image' do
+            = fa_icon 'picture-o', class: 'icon'
+            = f.file_field :image, class: 'hidden'
+        = f.submit 'Send', class: 'form__submit'
 
 
   
