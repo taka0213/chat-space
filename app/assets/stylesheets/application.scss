@@ -1,9 +1,13 @@
 @import "./reset";
-
 @import "front";
-
-@import "user";
-
+@import "font-awesome";
+@import "mixin/flexbox";
 @import "config/colors";
-
+@import "modules/wrapper";
 @import "modules/flash";
+@import "modules/user";
+@import "modules/group";
+
+@import "modules/side-bar";
+
+@import "modules/chat";
