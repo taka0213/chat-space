@@ -19,6 +19,9 @@ $(function(){
                     </div> `
       return html;
     }
+    function form_reset() {
+      $('#new_message')[0].reset();
+  }
   
     $('#new_message').on('submit', function(e){
       e.preventDefault();
@@ -35,7 +38,6 @@ $(function(){
       .done(function(data){
         var html = buildHTML(data);
          $('.messages').append(html);
-        form.reset();
          $( ".form__submit").prop( "disabled", false );  
          $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
          $('.form__message').val('');
