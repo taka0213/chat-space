@@ -36,35 +36,4 @@ $(function() {
       alert('error');
     });
   });
-
-  var reloadMessages = function() {
-    last_message_id = $('.message:last').data('message_id');
-    path = location.pathname;
-    url = path.replace('messages', 'api/messages')
-    $.ajax({
-      url: url,
-      type: 'GET',
-      dataType: 'json',
-      data: {id: last_message_id}
-    })
-    .done(function(messages) {
-      var insartHTML = '';
-      messages.forEach(function(message){
-          insartHTML = buildMessageHTML(message);
-          $(".messages").append(insartHTML);
-          $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
-      });
-    })
-    .fail(function() {
-    });
-  };
-
-  $(function(){
-  if (location.pathname.match(/messages/)) {
-    setInterval(reloadMessages, 5000);
-  }
-  else {
-    clearInterval(reloadMessages);
-  };
-  });
 });
